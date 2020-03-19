@@ -15,10 +15,11 @@
 
 			<br />
 
-			<h:commandButton value="Précédent" /> &#160;
-            <h:commandButton value="Suivant">
-				<f:actionListener binding="#{nextListener}" />
-			</h:commandButton>
+			<h:commandButton value="Précédent"
+				actionListener="#{catalogBrowserBean.processPreviousAction}" />
+                &#160;
+            <h:commandButton value="Suivant"
+				actionListener="#{catalogBrowserBean.processNextAction}" />
 		</h:form>
 
 	</body>
