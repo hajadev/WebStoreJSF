@@ -8,15 +8,21 @@
         </head>
         <body>
             <h1>Login screen</h1>
+            
+            <h:messages styleClass="errorBlock"/>
                     
             <h:form>
             
                 Login: 
-                <h:inputText id="login" value="#{loginBean.login}" />
+                <h:inputText id="login" value="#{loginBean.login}" 
+                			 required="true" requiredMessage="Le login ne doit pas être vide" />
+                <h:message for="login" styleClass="errorBlock"/>
                 <br/>
                 
                 Password:
-                <h:inputText id="password" value="#{loginBean.password}" />
+                <h:inputText id="password" value="#{loginBean.password}" 
+                			 required="true" requiredMessage="Le mot de passe ne doit pas être vide" />
+                <h:message for="password" styleClass="errorBlock"/>
                 <br/>
             
                 
