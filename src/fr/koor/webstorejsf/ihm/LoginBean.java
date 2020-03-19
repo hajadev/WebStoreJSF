@@ -3,6 +3,10 @@ package fr.koor.webstorejsf.ihm;
 import java.io.Serializable;
 
 import javax.enterprise.context.SessionScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import javax.faces.validator.ValidatorException;
 import javax.inject.Named;
 
 
@@ -40,6 +44,15 @@ public class LoginBean implements Serializable {
     public String returnAction() {
         System.out.println( "in returnAction" );
         return password.equals( "007" ) ? "success" : "failure";
+    }
+    
+    public void validateAField(FacesContext context, UIComponent component, Object value) throws ValidatorException {
+        String inputValue = (String) value;
+        if ( ! inputValue.contains( "#" ) ) {
+            FacesMessage msg = new FacesMessage( "Mauvais format : doit contenir un #" );
+            msg.setSeverity( FacesMessage.SEVERITY_ERROR );
+            throw new ValidatorException(msg);
+        }
     }
     
 }

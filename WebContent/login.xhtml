@@ -13,7 +13,8 @@
             
                 Login: 
             <h:inputText id="login" value="#{loginBean.login}"
-				required="true" requiredMessage="Le login ne doit pas être vide" />
+				required="true" requiredMessage="Le login ne doit pas être vide" 
+				validator="#{loginBean.validateAField}" validatorMessage="Un caractère # est requis"/>
 			<h:message for="login" styleClass="errorBlock" />
 			<br />
                 
