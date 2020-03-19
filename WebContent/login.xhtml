@@ -15,7 +15,8 @@
                 Login: 
             <h:inputText id="login" value="#{loginBean.login}"
 				required="true" requiredMessage="Le login ne doit pas être vide" p:required="true"
-				validator="#{loginBean.validateAField}" validatorMessage="Un caractère # est requis"/>
+				validatorMessage="Le login doit être un mail valide"
+				/>
 			<h:message for="login" styleClass="errorBlock" />
 			<br />
                 
@@ -23,8 +24,7 @@
             <h:inputSecret id="password" value="#{loginBean.password}"
 				required="true"
 				requiredMessage="Le mot de passe ne doit pas être vide"
-				validatorMessage="Le mdp doit faire entre 3 et 12 caractères et ne doit comporter que des caractères valides">
-				<f:validateRegex pattern="^[a-zA-Z0-9]{3,12}$"/>
+				validatorMessage="Le mdp doit faire entre 3 et 8 caractères et ne doit comporter que des caractères valides">
 			</h:inputSecret>
 			<h:message for="password" styleClass="errorBlock" />
 			<br />

@@ -8,6 +8,9 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.validator.ValidatorException;
 import javax.inject.Named;
+import javax.validation.constraints.Size;
+
+import fr.koor.webstorejsf.validator.Email;
 
 
 @Named /*("loginBean")*/ 
@@ -17,7 +20,10 @@ public class LoginBean implements Serializable {
 
     private static final long serialVersionUID = -5433850275008415405L;
 
-    private String login = "James";
+    @Email @Size(min = 1)
+    private String login = "james@mi6.uk";
+    
+    @Size(min = 3, max = 8)
     private String password = "007";
     
     public String getLogin() {
